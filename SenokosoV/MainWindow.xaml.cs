@@ -35,7 +35,7 @@ namespace SenokosoV
             }
             else
             {
-                MessageBox.Show("Неверный логин или пароль");
+                Exaption.Text = "Не верный логин или пароль";
             }
         }
 

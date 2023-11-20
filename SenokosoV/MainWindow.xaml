@@ -11,16 +11,16 @@
             <TabItem Header="Вход" IsSelected="True">
                 <Grid Margin="0,20,0,0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="49*"/>
-                        <ColumnDefinition Width="18*"/>
-                        <ColumnDefinition Width="277*"/>
+                        <ColumnDefinition Width="63*"/>
+                        <ColumnDefinition Width="23.233"/>
+                        <ColumnDefinition Width="358*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Content="Логин:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Grid.ColumnSpan="2"/>
-                    <TextBox x:Name="txtLogin" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="53,10,0,0" Width="200" Grid.Column="2"/>
-                    
+                    <Label Content="Логин:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,23,0,0"/>
+                    <TextBox x:Name="txtLogin" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="53,26,0,0" Width="200" Grid.Column="2"/>
+                    <TextBlock x:Name="Exaption" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70,5,0,0" Width="200" Grid.Column="2" ></TextBlock>
 
-                    <Label Content="Пароль:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,31,0,0" Grid.ColumnSpan="2"/>
-                    <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="53,40,0,0" Width="200" Grid.Column="2"/>
+                    <Label Content="Пароль:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,49,0,0" Grid.ColumnSpan="2"/>
+                    <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="53,53,0,0" Width="200" Grid.Column="2"/>
 
                     <Button Content="Войти" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="50,130,0,0" Width="300" Click="Button_Click" Grid.ColumnSpan="3"/>
                 </Grid>

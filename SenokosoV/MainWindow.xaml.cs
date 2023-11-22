@@ -18,9 +18,12 @@ namespace SenokosoV
     
     public partial class MainWindow : Window
     {
+        List<User> users;
         public MainWindow()
         {
             InitializeComponent();
+            users = new List<User>();
+            users.Add(new User("Kostya", "admin", "123456","M"));
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -28,37 +31,113 @@ namespace SenokosoV
             string login = txtLogin.Text;
             string password = txtPassword.Password;
 
-            
-            if (login == "Losharik" && password == "12345") 
+            foreach (User user in users)
             {
-                MessageBox.Show("Вход выполнен успешно");
-            }
-            else
-            {
-                Exaption.Text = "Не верный логин или пароль";
+
+
+                if (login == user.login && password == user.password)
+                {
+                    MessageBox.Show("Вход выполнен успешно");
+                }
+                else
+                {
+                    Exaption.Text = "Не верный логин или пароль";
+                }
             }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            
-            string name = txtName.Text;
-            string email = txtEmail.Text;
-            string gender = cmbGender.Name;
-            string password = txtRegPassword.Password;
-            string confirmPassword = txtRegPasswordConfirm.Password;
 
-            if (password == confirmPassword) 
+            string name = "";
+            string email = "";
+            string gender = "";
+            string password = "";
+            string confirmPassword = "";
+
+            if(txtName.Text == "")
             {
-                MessageBox.Show("Регистрация выполнена успешно");
+                MessageBox.Show("Введите имя");
             }
             else
             {
-                MessageBox.Show("Пароли не совпадают");
+                name = txtName.Text;
             }
-        }
+
+            if (txtEmail.Text == "")
+            {
+                MessageBox.Show("Введите email");
+            }
+            else
+            {
+                email = txtEmail.Text;
+            }
+
+            if (cmbGender.Name == "")
+            {
+                MessageBox.Show("Выберите пол");
+            }
+            else
+            {
+                gender = cmbGender.Name;
+            }
+
+            if (txtRegPassword.Password == "")
+            {
+                MessageBox.Show("Введите пароль");
+            }
+            else
+            {
+                password = txtRegPassword.Password;
+            }
+
+            
+           
+
+            if (txtRegPasswordConfirm.Password == "")
+            {
+                MessageBox.Show("Введите пароль повторно");
+            }
+            else
+            {
+                confirmPassword = txtRegPasswordConfirm.Password;
+
+            }
+
+            if (password != "" && confirmPassword != "")
+            {
+                if(password == confirmPassword)
+                {
+                    password = confirmPassword;
+                }
+                else
+                {
+                    MessageBox.Show("Повтор пароля");
+                }
+            }
+
+
+            if (M.IsChecked == true)
+            {
+                gender = "M";
+            }
+            if(G.IsChecked == true)
+            {
+                gender = "G";
+            }
+
+           if(name != "" && email != "" && gender != "" && password != "" && confirmPassword != "")
+            {
+                users.Add(new User(name, email,password, gender));
+                MessageBox.Show("Регистрация прошла успешна");
+            }
+        } 
     }
 }
+
+
+
+
 
 
 
